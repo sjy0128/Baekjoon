@@ -1,0 +1,1 @@
+print('S'if list(map(int,input().split())).count(9)==0 else'F')
