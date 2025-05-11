@@ -1,0 +1,1 @@
+print(":fan:"*3,":fan::"+input()+"::fan:",":fan:"*3,sep='\n')
