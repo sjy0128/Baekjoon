@@ -13,7 +13,7 @@ int main() {
 int f1(int a) {
     if(a <= 1) return 1;
     int b = f1(a - 1);
-    return (f2(a) % 100000) * (f2(b) % 100000);
+    return f2(a) * (f2(b) % 100000);
 }
 
 int f2(int a) {
