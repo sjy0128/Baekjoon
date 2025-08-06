@@ -2,7 +2,7 @@
 
 int main(void) {
     int n, i, j=2, a[11]={0,};
-    char b[11] = {'r', 'a', 'b', 'b', 'i', 't', 'h', 'o', 'r', 's', 'e'};
+    char b[12] = "rabbithorse";
     scanf("%d", &n);
     for(i=0; i<n; i++) {
         a[j++]++;
