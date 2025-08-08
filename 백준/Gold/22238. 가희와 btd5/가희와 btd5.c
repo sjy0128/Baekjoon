@@ -23,9 +23,9 @@ int main(void) {
         scanf("%d %d %d", &x, &y, &d);
         a = 0;
         if(!x) {
-            if(!sd && (y > 0 && sn > 0) || (y < 0 && sn < 0)) a = 1;
+            if(!sd && ((y > 0 && sn > 0) || (y < 0 && sn < 0))) a = 1;
         } else if(!y) {
-            if(!sn && (x > 0 && sd > 0) || (x < 0 && sd < 0)) a = 1;
+            if(!sn && ((x > 0 && sd > 0) || (x < 0 && sd < 0))) a = 1;
         } else if(sd && sn) {
             if(!(x%sd) && !(y%sn) && x/sd == y/sn && x/sd > 0) a = 1;
         }
