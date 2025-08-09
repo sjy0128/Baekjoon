@@ -2,7 +2,7 @@
 
 int main(void) {
     int n, m, t, k, a, b, S[101][101]={0,}, s, x, y;
-    char g[100][100];
+    char g[100][101];
     scanf("%d %d %d\n%d %d %d", &n, &m ,&t, &k, &a, &b);
     for(int i=0; i<n; i++) {
         scanf("%s", g[i]);
@@ -24,8 +24,8 @@ int main(void) {
         }
     }
     for(int i=0; i<n; i++) {
-        for(int j=0; j<m; j++) printf("%c", g[i][j]);
-        printf("\n");
+        printf("%s\n", g[i]);
     }
     return 0;
+
 }
