@@ -1,78 +1,68 @@
 #include <stdio.h>
 
 int main(void) {
-    int a[3][3], zc=0, s=0, ze, m, w[3]={0,}, p=0, x[3]={0,}, xx[3]={0,}, y;
+    int ms[3][3], zc=0, s=0, t[3]={0,}, m=0, n=0, z;
     for(int i=0; i<3; i++) {
         for(int j=0; j<3; j++) {
-            scanf("%d", &a[i][j]);
-            if(!a[i][j]) zc++;
+            scanf("%d", &ms[i][j]);
+            if(!ms[i][j]) zc++;
         }
     }
-    if(!a[0][0] && !a[1][1] && !a[2][2] || !a[2][0] && !a[1][1] && !a[0][2]) {
+    if(!ms[0][0] && !ms[1][1] && !ms[2][2] || !ms[2][0] && !ms[1][1] && !ms[0][2]) {
         for(int i=0; i<3; i++) {
-            for(int j=0; j<3; j++) w[i] += a[i][j];
-            s += w[i];
-            if(!i || w[i] > m) m = w[i];
+            for(int j=0; j<3; j++) {
+                t[i] += ms[i][j];
+            }
+            if(t[i] > m) m = t[i];
+            n += t[i];
         }
-        m++;
-        s = m*3-s;
-        while(m != s) {
-            s += 3;
-            m++;
+        m = m*3-n;
+        while(n+m != m*3) {
+            m += 1;
         }
         for(int i=0; i<3; i++) {
             for(int j=0; j<3; j++) {
-                if(!a[i][j]) {
-                    a[i][j] = m - w[i];
-                }
+                if(!ms[i][j]) ms[i][j] = m -  t[i];
             }
         }
     } else {
-        if(a[0][0] && a[1][1] && a[2][2]) s = a[0][0] + a[1][1] + a[2][2];
-        if(a[2][0] && a[1][1] && a[0][2]) s = a[2][0] + a[1][1] + a[0][2];
+        if(zc == 3) {
+            if(ms[0][0] && ms[1][1] && ms[2][2]) s = ms[0][0] + ms[1][1] + ms[2][2];
+            else if(ms[2][0] && ms[1][1] && ms[0][2]) s = ms[2][0] + ms[1][1] + ms[0][2];
+        }
         while(zc) {
             for(int i=0; i<3; i++) {
-                y = 0;
-                ze = 0;
+                n = z = 0;
                 for(int j=0; j<3; j++) {
-                    if(!a[i][j]) ze++;
-                    y += a[i][j];
+                    n += ms[i][j];
+                    if(!ms[i][j]) z++;
                 }
-                if(!ze) s = y;
-                if(ze == 1 && s) {
+                if(!z) s = n;
+                if(s && z == 1) {
                     for(int j=0; j<3; j++) {
-                        if(!a[i][j]) {
-                            a[i][j] = s - y;
-                            zc--;
-                            break;
-                        }
+                        if(!ms[i][j]) ms[i][j] = s - n;
                     }
+                    zc--;
                 }
             }
             for(int i=0; i<3; i++) {
-                y = 0;
-                ze = 0;
+                n = z = 0;
                 for(int j=0; j<3; j++) {
-                    if(!a[j][i]) ze++;
-                    y += a[j][i];
+                    n += ms[j][i];
+                    if(!ms[j][i]) z++;
                 }
-                if(!ze) s = y;
-                if(ze == 1 && s) {
+                if(!z) s = n;
+                if(s && z == 1) {
                     for(int j=0; j<3; j++) {
-                        if(!a[j][i]) {
-                            a[j][i] = s - y;
-                            zc--;
-                            break;
-                        }
+                        if(!ms[j][i]) ms[j][i] = s - n;
                     }
+                    zc--;
                 }
             }
         }
     }
     for(int i=0; i<3; i++) {
-        for(int j=0; j<3; j++) {
-            printf("%d ", a[i][j]);
-        }
+        for(int j=0; j<3; j++) printf("%d ", ms[i][j]);
         printf("\n");
     }
     return 0;
