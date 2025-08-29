@@ -11,7 +11,7 @@ int p;
 
 int read_int(char str[]);
 Node *make_tree(char str[]);
-void preorder(Node *a, Node *b);
+void inorder(Node *a, Node *b);
 
 void free_tree(Node *a);
 
@@ -21,7 +21,7 @@ int main(void) {
     a_root = make_tree(a);
     p = 0;
     b_root = make_tree(b);
-    preorder(a_root, b_root);
+    inorder(a_root, b_root);
     free_tree(a_root);
     free_tree(b_root);
     return 0;
@@ -46,11 +46,11 @@ Node *make_tree(char str[]) {
     return n;
 }
 
-void preorder(Node *a, Node *b) {
+void inorder(Node *a, Node *b) {
     printf("(");
-    if(a->left != NULL && b->left != NULL) preorder(a->left, b->left);
+    if(a->left != NULL && b->left != NULL) inorder(a->left, b->left);
     printf(")[%d](", a->data + b->data);
-    if(a->right != NULL && b->right != NULL) preorder(a->right, b->right);
+    if(a->right != NULL && b->right != NULL) inorder(a->right, b->right);
     printf(")");
 }
 
