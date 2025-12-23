@@ -1,7 +1,5 @@
 #include <stdio.h>
-
 int f(unsigned int n);
-
 int main(void) {
     int t, x, y;
     scanf("%d", &t);
@@ -11,7 +9,6 @@ int main(void) {
     }
     return 0;
 }
-
 int f(unsigned int n) {
     int a = 1, r = 0;
     long long sum = 0;
