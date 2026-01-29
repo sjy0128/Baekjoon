@@ -3,7 +3,7 @@
 int main(void) {
     int t, l, c, d[10];
     long long sum;
-    char s[13];
+    char s[17];
     scanf("%d", &t);
     while(t--) {
         scanf("%s", s);
