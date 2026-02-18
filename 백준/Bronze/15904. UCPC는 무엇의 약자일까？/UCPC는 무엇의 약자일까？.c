@@ -1,2 +1,1 @@
-#include<stdio.h>
-int i;int main(){char c,*u="UCPC";while((c=getchar())!=-1){if(i<4&&c==u[i])i++;}printf("I %se UCPC",i==4?"lov":"hat");}
+char*p="UCPC",i;main(c){while(c=~getchar())i+=p[i]==~c;printf("I %se UCPC",4&i?"lov":"hat");}
