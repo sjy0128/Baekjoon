@@ -39,7 +39,7 @@ int main(void) {
         n--;
     }
     
-    while(!ans[pad]) pad++;
+    pad = !ans[0];
     
     REPF(i, ai-pad) printf("%d", ans[i+pad]);
     
