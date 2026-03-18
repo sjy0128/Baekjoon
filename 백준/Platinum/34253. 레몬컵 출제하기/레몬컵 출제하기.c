@@ -13,12 +13,12 @@ int main(void) {
         }
         b = l;
         for(i=0; i<b; i++) {
-            if((a | t[i]) == a && x != 1) t[l++] = a, x = 1;
             if((a | t[i]) == t[i]) {
                 x = 0;
                 t[l++] = a;
                 break;
             }
+            if((a | t[i]) == a) t[i] = a, x = 1;
         }
         if(x == 2) t[l++] = a;
         z = x;
